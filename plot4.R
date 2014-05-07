@@ -32,28 +32,34 @@ for(i in 3:8) {
 # Subsetting dates
 selection <- energy[(energy$Date=="2007-02-01" | energy$Date=="2007-02-02"), ]
 
-# hist(selection$Global_active_power, col="red", 
-#      xlab="Global Active Power (kilowatts)", main="Global Active Power")
+# 4 plots
+par(mfrow = c(2, 2))
 
-# plot(selection$Time, selection$Global_active_power, col="black", type="l",
-#      xlab="Global Active Power (kilowatts)", main="Global Active Power")
+# Plot 1
+plot(selection$Time, selection$Global_active_power, col="black", type="l",
+     xlab="Global Active Power (kilowatts)", main="Global Active Power")
 
+# Plot 2
+plot(selection$Time, selection$Voltage, col="black", type="l",
+     xlab="datatime", ylab="Voltage")
+
+# Plot 3
 plot(selection$Time, selection$Sub_metering_1, type="l", 
-     col="grey", ylab="Energy sub metering", xlab="")
+     col="black", ylab="Energy sub metering", xlab="")
 lines(selection$Time, selection$Sub_metering_2, type="l", col="red")
 lines(selection$Time, selection$Sub_metering_3, type="l", col="blue")
-legend("topright", pch="-", col=c("grey", "blue", "red"), 
-       legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
-# par(mfrow = c(1, 2))
-# with(airquality, {
-#      plot(Wind, Ozone, main = "Ozone and Wind")
-#      plot(Solar.R, Ozone, main = "Ozone and Solar Radiation")
-# })
+legend("topright", lty=1, col=c("black", "blue", "red"), cex=1.2,
+       legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+       bty="n", y.intersp=1, xjust=1)
+
+# Plot 4
+plot(selection$Time, selection$Global_reactive_power, col="black", type="l",
+     xlab="datatime", ylab="Global_reactive_power")
 
 # Change to main directory
 setwd("../")
 # Create figure directory
 if(!file.exists("./figure")){dir.create("./figure")}
 # Print to png file
-dev.copy(png, file="./figure/plot3.png")  ## Copy my plot to a PNG file
+dev.copy(png, file="./figure/plot4.png")  ## Copy my plot to a PNG file
 dev.off()
