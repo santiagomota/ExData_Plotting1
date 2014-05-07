@@ -42,18 +42,13 @@ plot(selection$Time, selection$Sub_metering_1, type="l",
      col="black", ylab="Energy sub metering", xlab="")
 lines(selection$Time, selection$Sub_metering_2, type="l", col="red")
 lines(selection$Time, selection$Sub_metering_3, type="l", col="blue")
-legend("topright", pch="-", col=c("black", "blue", "red"), 
+legend("topright", col=c("black", "blue", "red"), lty=1, xjust=0,
        legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
-# par(mfrow = c(1, 2))
-# with(airquality, {
-#      plot(Wind, Ozone, main = "Ozone and Wind")
-#      plot(Solar.R, Ozone, main = "Ozone and Solar Radiation")
-# })
 
 # Change to main directory
-setwd("../")
+setwd("./")
 # Create figure directory
 if(!file.exists("./figure")){dir.create("./figure")}
 # Print to png file
-dev.copy(png, file="./figure/plot3.png")  ## Copy my plot to a PNG file
+dev.copy(png, file="./figure/plot3.png", width=480, height=480)  ## Copy my plot to a PNG file
 dev.off()

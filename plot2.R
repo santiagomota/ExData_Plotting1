@@ -32,15 +32,12 @@ for(i in 3:8) {
 # Subsetting dates
 selection <- energy[(energy$Date=="2007-02-01" | energy$Date=="2007-02-02"), ]
 
-# hist(selection$Global_active_power, col="red", 
-#      xlab="Global Active Power (kilowatts)", main="Global Active Power")
-
 plot(selection$Time, selection$Global_active_power, col="black", type="l",
      xlab="Global Active Power (kilowatts)", main="Global Active Power")
 # Change to main directory
-setwd("../")
+setwd("./")
 # Create figure directory
 if(!file.exists("./figure")){dir.create("./figure")}
 # Print to png file
-dev.copy(png, file="./figure/plot2.png")  ## Copy my plot to a PNG file
+dev.copy(png, file="./figure/plot2.png", width=480, height=480)  ## Copy my plot to a PNG file
 dev.off()

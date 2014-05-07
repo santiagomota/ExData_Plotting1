@@ -37,7 +37,7 @@ par(mfrow = c(2, 2))
 
 # Plot 1
 plot(selection$Time, selection$Global_active_power, col="black", type="l",
-     xlab="Global Active Power (kilowatts)", main="Global Active Power")
+     xlab="", ylab="Global Active Power (kilowatts)", main="Global Active Power")
 
 # Plot 2
 plot(selection$Time, selection$Voltage, col="black", type="l",
@@ -48,18 +48,18 @@ plot(selection$Time, selection$Sub_metering_1, type="l",
      col="black", ylab="Energy sub metering", xlab="")
 lines(selection$Time, selection$Sub_metering_2, type="l", col="red")
 lines(selection$Time, selection$Sub_metering_3, type="l", col="blue")
-legend("topright", lty=1, col=c("black", "blue", "red"), cex=1.2,
+legend("topright", lty=1, col=c("black", "blue", "red"), cex=1,
        legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-       bty="n", y.intersp=1, xjust=1)
+       bty="n", y.intersp=0.7)
 
 # Plot 4
 plot(selection$Time, selection$Global_reactive_power, col="black", type="l",
      xlab="datatime", ylab="Global_reactive_power")
 
 # Change to main directory
-setwd("../")
+setwd("./")
 # Create figure directory
 if(!file.exists("./figure")){dir.create("./figure")}
 # Print to png file
-dev.copy(png, file="./figure/plot4.png")  ## Copy my plot to a PNG file
+dev.copy(png, file="./figure/plot4.png", width=480, height=480)  ## Copy my plot to a PNG file
 dev.off()
