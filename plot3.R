@@ -39,10 +39,10 @@ selection <- energy[(energy$Date=="2007-02-01" | energy$Date=="2007-02-02"), ]
 #      xlab="Global Active Power (kilowatts)", main="Global Active Power")
 
 plot(selection$Time, selection$Sub_metering_1, type="l", 
-     col="grey", ylab="Energy sub metering", xlab="")
+     col="black", ylab="Energy sub metering", xlab="")
 lines(selection$Time, selection$Sub_metering_2, type="l", col="red")
 lines(selection$Time, selection$Sub_metering_3, type="l", col="blue")
-legend("topright", pch="-", col=c("grey", "blue", "red"), 
+legend("topright", pch="-", col=c("black", "blue", "red"), 
        legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 # par(mfrow = c(1, 2))
 # with(airquality, {
