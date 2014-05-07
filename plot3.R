@@ -32,11 +32,7 @@ for(i in 3:8) {
 # Subsetting dates
 selection <- energy[(energy$Date=="2007-02-01" | energy$Date=="2007-02-02"), ]
 
-# hist(selection$Global_active_power, col="red", 
-#      xlab="Global Active Power (kilowatts)", main="Global Active Power")
-
-# plot(selection$Time, selection$Global_active_power, col="black", type="l",
-#      xlab="Global Active Power (kilowatts)", main="Global Active Power")
+par(mfrow = c(1, 1))
 
 plot(selection$Time, selection$Sub_metering_1, type="l", 
      col="black", ylab="Energy sub metering", xlab="")
